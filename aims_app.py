@@ -1,5 +1,4 @@
 import streamlit as st
-import pyperclip
 
 def calculate_aims_score(responses):
     # 항목 1-7의 점수만 합산
@@ -124,12 +123,8 @@ def main():
         
         # 결과 표시 (영어로만)
         st.subheader("Assessment Results (English)")
-        st.text_area("Results", result_text, height=400)
-        
-        # 복사 버튼
-        if st.button("Copy Results"):
-            pyperclip.copy(result_text)
-            st.success("Results copied to clipboard!")
+        st.code(result_text, language=None)
+        st.info("To copy the results, click the copy icon in the top right corner of the code block.")
 
 if __name__ == "__main__":
     main()
